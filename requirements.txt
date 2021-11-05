@@ -3,3 +3,4 @@
 # Base ----------------------------------------
 discord_components
 discord.py
+python-dotenv
