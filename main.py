@@ -218,7 +218,7 @@ def main():
         index = random.randint(0,3)
         await ctx.send(text[index])
     
-    bot.run(os.getenv("DISCORD_TOKEN"))
+    bot.run(os.getenv(DISCORD_TOKEN))
 
 if __name__ == '__main__':
     main()
