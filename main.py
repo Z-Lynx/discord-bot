@@ -218,8 +218,7 @@ def main():
                           :{'1'}},					
               }
         while True:
-            i=random.randint(1,14)
-            print(str(i))
+            i=random.randint(1,20)
             if str(i) not in cauhoi:
                 continue
             else:
@@ -247,7 +246,7 @@ def main():
                             await ctx.send(f"LỒN {interaction.author} NGU NHƯ CẶC VẬY")
                             await asyncio.sleep(int(2))
                             await ctx.channel.purge(limit=a*4)
-                            await ctx.send(f"THẰNG GÀ {interaction.author} TRẢ LỜI ĐC {a} Câu !")
+                            await ctx.send(f"THẰNG GÀ {interaction.author} TRẢ LỜI ĐC {a-1} Câu !")
                             return
     @bot.command()
     async def dktuoilon(ctx):
