@@ -240,23 +240,23 @@ def main():
                     try:
                         interaction = await bot.wait_for("select_option",timeout=4, check = lambda i: i.custom_id=='selectTesting')
                     except asyncio.TimeoutError:
-                        await ctx.send("HẾT GIỜ GOOGLE CÁI ĐẦU BUỒI")
+                        await ctx.send(f"HẾT GIỜ GOOGLE CÁI ĐẦU BUỒI NGHE CHƯA {ctx.author.name} !!!!!")
                         await asyncio.sleep(int(2))
                         await ctx.channel.purge(limit=a*4)
-                        await ctx.send(f"THẰNG GÀ {interaction.author} TRẢ LỜI ĐC {a-1} Câu !")
+                        await ctx.send(f"THẰNG GÀ {ctx.author.name} TRẢ LỜI ĐC {a-1} Câu !")
 
                         return
                     else:
                         for x in cauhoi[str(i)].values():
                             if str('{\''+interaction.values[0]+'\'}') == str(x) :
-                                await ctx.send(f"Ê {interaction.author} GIỎI !!!!")
+                                await ctx.send(f"Ê {ctx.author.name} GIỎI !!!!")
                                 a= a+1
                                 del cauhoi[str(i)]
                             else:
-                                await ctx.send(f"LỒN {interaction.author} NGU NHƯ CẶC VẬY")
+                                await ctx.send(f"LỒN {ctx.author.name} NGU NHƯ CẶC VẬY")
                                 await asyncio.sleep(int(2))
                                 await ctx.channel.purge(limit=a*4)
-                                await ctx.send(f"THẰNG GÀ {interaction.author} TRẢ LỜI ĐC {a-1} Câu !")
+                                await ctx.send(f"THẰNG GÀ {ctx.author.name} TRẢ LỜI ĐC {a-1} Câu !")
                                 return
     @bot.command()
     async def DK(ctx):
