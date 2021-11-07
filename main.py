@@ -12,7 +12,7 @@ from discord.ext import commands
 def main():
     load_dotenv()
     bot = ComponentsBot("$")
-    a = 1
+
 
     @bot.event
     async def on_ready(): 
@@ -89,6 +89,7 @@ def main():
 
     @bot.command()   
     async def ailatrieuphu(ctx):
+        a = 1
         cauhoi={
                   "1":{"Tên Đầu Tiên Bác Hồ Là G:"
                       +"\n"+"1.Nguyễn Sinh Cung"
@@ -217,7 +218,6 @@ def main():
                           :{'1'}},					
               }
         while True:
-            global a
             i=random.randint(1,14)
             print(str(i))
             if str(i) not in cauhoi:
