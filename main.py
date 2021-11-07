@@ -242,7 +242,7 @@ def main():
                     except asyncio.TimeoutError:
                         await ctx.send(f"HẾT GIỜ GOOGLE CÁI ĐẦU BUỒI NGHE CHƯA {ctx.author.name} !!!!!")
                         await asyncio.sleep(int(2))
-                        await ctx.channel.purge(limit=a*4)
+                        await ctx.channel.purge(limit=a*5)
                         await ctx.send(f"THẰNG GÀ {ctx.author.name} TRẢ LỜI ĐC {a-1} Câu !")
 
                         return
@@ -255,7 +255,7 @@ def main():
                             else:
                                 await ctx.send(f"LỒN {ctx.author.name} NGU NHƯ CẶC VẬY")
                                 await asyncio.sleep(int(2))
-                                await ctx.channel.purge(limit=a*4)
+                                await ctx.channel.purge(limit=a*5)
                                 await ctx.send(f"THẰNG GÀ {ctx.author.name} TRẢ LỜI ĐC {a-1} Câu !")
                                 return
     @bot.command()
