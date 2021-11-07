@@ -241,6 +241,8 @@ def main():
                         interaction = await bot.wait_for("select_option",timeout=4, check = lambda i: i.custom_id=='selectTesting')
                     except asyncio.TimeoutError:
                         await ctx.send("HẾT GIỜ GOOGLE CÁI ĐẦU BUỒI")
+                        await asyncio.sleep(int(2))
+                        await ctx.channel.purge(limit=a*4)
                         await ctx.send(f"THẰNG GÀ {interaction.author} TRẢ LỜI ĐC {a-1} Câu !")
 
                         return
