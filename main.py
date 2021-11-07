@@ -218,7 +218,7 @@ def main():
               }
         a=1
         while True:
-            i=random.randint(1,14)
+            i=random.randint(1,22)
             print(str(i))
             if str(i) not in cauhoi:
                 continue
