@@ -89,9 +89,8 @@ def main():
 
     @bot.command()   
     async def ailatrieuphu(ctx):
-        a = 1
         cauhoi={
-                  "1":{"Tên Đầu Tiên Bác Hồ Là G:"
+                  "1":{"Tên Đầu Tiên Bác Hồ Là Gì :"
                       +"\n"+"1.Nguyễn Sinh Cung"
                   +"\n"+"2.Nguyễn Sinh Côn"
                   +"\n"+"3.Nguyễn Tất Thành"
@@ -218,7 +217,9 @@ def main():
                           :{'1'}},					
               }
         while True:
-            i=random.randint(1,20)
+            global a
+            i=random.randint(1,14)
+            print(str(i))
             if str(i) not in cauhoi:
                 continue
             else:
@@ -236,24 +237,34 @@ def main():
                         ],
                         custom_id='selectTesting'
                     )])
-                    interaction = await bot.wait_for("select_option", check = lambda i: i.custom_id=='selectTesting')
-                    for x in cauhoi[str(i)].values():
-                        if str('{\''+interaction.values[0]+'\'}') == str(x) :
-                            await ctx.send(f"Ê {interaction.author} GIỎI !!!!")
-                            a= a+1
-                            del cauhoi[str(i)]
-                        else:
-                            await ctx.send(f"LỒN {interaction.author} NGU NHƯ CẶC VẬY")
-                            await asyncio.sleep(int(2))
-                            await ctx.channel.purge(limit=a*4)
-                            await ctx.send(f"THẰNG GÀ {interaction.author} TRẢ LỜI ĐC {a-1} Câu !")
-                            return
+                    try:
+                        interaction = await bot.wait_for("select_option",timeout=4, check = lambda i: i.custom_id=='selectTesting')
+                    except asyncio.TimeoutError:
+                        await ctx.send("HẾT GIỜ GOOGLE CÁI ĐẦU BUỒI")
+                        await ctx.send(f"THẰNG GÀ {interaction.author} TRẢ LỜI ĐC {a-1} Câu !")
+
+                        return
+                    else:
+                        for x in cauhoi[str(i)].values():
+                            if str('{\''+interaction.values[0]+'\'}') == str(x) :
+                                await ctx.send(f"Ê {interaction.author} GIỎI !!!!")
+                                a= a+1
+                                del cauhoi[str(i)]
+                            else:
+                                await ctx.send(f"LỒN {interaction.author} NGU NHƯ CẶC VẬY")
+                                await asyncio.sleep(int(2))
+                                await ctx.channel.purge(limit=a*4)
+                                await ctx.send(f"THẰNG GÀ {interaction.author} TRẢ LỜI ĐC {a-1} Câu !")
+                                return
     @bot.command()
-    async def dktuoilon(ctx):
+    async def DK(ctx):
         await ctx.send("DK CÓ TUỔI NHƯNG TUỔI LỒN !\n"*55)
     @bot.command()
-    async def clear(ctx):
-        await ctx.channel.purge(limit=100)    
+    async def clear(ctx,reson=None):
+        await ctx.channel.purge(limit=reson)    
+    @bot.command()
+    async def clearall(ctx):
+        await ctx.channel.purge(limit=100000)    
     @bot.command()
     async def mutetime(ctx, member: discord.Member=None, time=None, *, reason=None):
         if(str(member.mention) !="<@815925691580940298>"):
@@ -331,27 +342,30 @@ def main():
     @bot.command()
     async def helpme(ctx):
         embed = discord.Embed(
-          title='LỆNH ĐÍT BOT LYNN !!!',
+          title='COMMANDS ĐÍT BOT LYNN& ZUKER !!!',
           description=('COMMANDS \n\n:'
-                      '1. $said {name}\n'
-                      '2. $ban {name}{cấm dùng chưa fix}\n'
-                      '3. $unban {name}{cấm dùng chưa fix}\n'
-                      '4. $hello_bot\n'
-                      '5. $helpcoder\n'
-                      '6. $bucu {name}\n'
-                      '7. $imgirl {name}\n'
-                      '8. $Ngu {name}\n'
-                      '9. $mute {name}\n'
-                      '10. $ailatrieuphu\n'
-                      '11. $clear\n'
-                      '12. $dktuoilon {name}\n'
-                      '13. $unmute {name}\n'),
+                          '1. $said {name}\n'
+                          '2. $ban {name}{cấm dùng chưa fix}\n'
+                          '3. $unban {name}{cấm dùng chưa fix}\n'
+                          '4. $hello_bot\n'
+                          '5. $helpcoder\n'
+                          '6. $bucu {name}\n'
+                          '7. $imgirl {name}\n'
+                          '8. $Ngu {name}\n'
+                          '9. $mute {name}\n'
+                          '10. $unmute {name}\n'
+                          '11. $ailatrieuphu\n'
+                          '12. $clearall\n'
+                          '13. $clear {số lượng}\n'
+                          '14. $dktuoilon {name}\n'),
 
           color=0xFF0000
         )
         msg = await ctx.send(embed=embed)
         await msg.add_reaction('👍')
         await msg.add_reaction('👎')
+
+
 
 
     @bot.command()
