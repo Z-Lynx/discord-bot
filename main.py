@@ -12,9 +12,11 @@ from discord.ext import commands
 def main():
     load_dotenv()
     bot = ComponentsBot("$")
+    a = 1
+
     @bot.event
     async def on_ready(): 
-        print('đang chạy $$$$$$$$$$$$$$$ ')
+      print('đang chạy $$$$$$$$$$$$$$$ ')
 
     @bot.command()
     async def said(ctx, arg):
@@ -37,13 +39,13 @@ def main():
     @bot.command()
     async def imgirl(ctx, arg):
         embed = discord.Embed(
-        title='Em là con gái !',
-        description=f'Yêu em không anh {arg}',
-        color=0x1abc9c
+          title='Em là con gái !',
+          description=f'Yêu em không anh {arg}',
+          color=0x1abc9c
         )
         msg =await ctx.send(embed=embed)
         await msg.add_reaction('💖')
-        
+
 
     @bot.command()
     async def ban(ctx, member : discord.Member, *, reason = None):
@@ -82,37 +84,177 @@ def main():
     @bot.command()
     async def helpcoder(ctx):
         await ctx.send('http://facebook.com/LynnOwO')
-        
 
-        
+
+
     @bot.command()   
     async def ailatrieuphu(ctx):
-        cauhoi=  {"1": {"Ai là người vô Dis này đầu tiên sau Zuker :"+"\n"+"1.VŨ 2.Lynn 3.LION 4.Ryu-P" :{'2'}},
-            "2": {"Ai là người vô Dis này đầu tiên sau Zuke : 1VŨ 2Lynn 3LION 4Ryu-P" :{'2'}},
-            "3": {"Ai là người vô Dis này đầu tiên sau Zuke : 1VŨ 2Lynn 3LION 4Ryu-P" :{'2'}}}
-        i=1
+        cauhoi={
+                  "1":{"Tên Đầu Tiên Bác Hồ Là G:"
+                      +"\n"+"1.Nguyễn Sinh Cung"
+                  +"\n"+"2.Nguyễn Sinh Côn"
+                  +"\n"+"3.Nguyễn Tất Thành"
+                  +"\n"+"4.Nguyễn Văn Thành"
+                    :{'1'}},
 
-        for x in cauhoi[str(1)].keys():
-            await ctx.send(x)   
+                  "2":{"Khi Code Web Code Trên Gì ? :"
+                      +"\n"+"1.html"
+                  +"\n"+"2.Css"
+                  +"\n"+"3.Js"
+                  +"\n"+"4.C++" 
+                          :{'1'}},
 
-        await ctx.send('Chọn Đáp Án !',components=[Select(
-            placeholder='select Something! ',
-            options =[
-            SelectOption(label ='1',value='1'),
-            SelectOption(label ='2',value='2'),
-            SelectOption(label ='3',value='3'),
-            SelectOption(label ='4',value='4'),
-            ],
-            custom_id='selectTesting'
-        )])
-        while True :
-            interaction = await bot.wait_for("select_option", check = lambda i: i.custom_id=='selectTesting')
-            for x in cauhoi[str(i)].values():
-                if str('{\''+interaction.values[0]+'\'}') == str(x) :
-                    await ctx.send(f"Ê {interaction.author} TẠM ỔN ĐẤY, T TƯỞNG M NGU NHƯ CHÓ")
-                else:
-                    await ctx.send(f"LỒN {interaction.author} NGU NHƯ CẶC VẬY")
+                  "3":{"trong oop muốn kết thừa methord làm sao?"
+                      +"\n"+"1.super"
+                  +"\n"+"2.extends"
+                  +"\n"+"3.Ép kiểu object "
+                  +"\n"+"4.Constructor " 
+                      :{'1'}},
 
+                  "4":{"Liên Kết Đơn gồm gì ? :"
+                      +"\n"+"1.data next"
+                  +"\n"+"2.pre data next"
+                  +"\n"+"3.data"
+                  +"\n"+"4.next pre" 
+                          :{'1'}},
+
+                  "5":{"2 số cuối của 100^15 là bao nhiêu :"
+                      +"\n"+"1. 00"
+                  +"\n"+"2. 20"
+                  +"\n"+"3. 40"
+                  +"\n"+"4. 60" 
+                          :{'1'}},
+
+                  "6":{"Nguyên Hàm của sin(x) :"
+                      +"\n"+"1. cos(x)"
+                  +"\n"+"2. 1/sin(x)"
+                  +"\n"+"3. -1/con(x)"
+                  +"\n"+"4.-cot(x)*sin(x)" 
+                          :{'4'}},
+                "7":{"Nguyên Hàm của Cos(x) :"
+                      +"\n"+"1. cos(x)"
+                  +"\n"+"2. 1/sin(x)"
+                  +"\n"+"3. -1/con(x)"
+                  +"\n"+"4.-cot(x)*sin(x)" 
+                          :{'4'}},
+                "8":{"Địa danh Đắk Tô với những trận đánh nổi tiếng trong kháng chiến chống Mỹ thuộc tỉnh nào của khu vực Tây Nguyên? :"
+                    +"\n"+"1.Đắk Lắk"
+                    +"\n"+"2.Gia Lai"
+                    +"\n"+"3.Kon Tum"
+                    +"\n"+"4.Đắk Nông" 
+                      :{'3'}},   
+                "9":{"Đâu là tên một loại bánh nổi tiếng ở Huế? :"
+                      +"\n"+"1.Khoái"
+                  +"\n"+"2. Thích"
+                  +"\n"+"3. Vui"
+                  +"\n"+"4. Sướng" 
+                          :{'1'}},		
+                "10":{"Bộ phim Chị Dậu được chuyển thể từ tác phẩm nào? :"
+                      +"\n"+"1.Người mẹ cầm súng"
+                  +"\n"+"2. Tắt đèn"
+                  +"\n"+"3.Vợ chồng A Phủ"
+                  +"\n"+"4.Tuổi thơ dữ dội" 
+                          :{'2'}},
+                "11":{"Cho tới thời điểm hiện nay, vườn quốc gia nào của nước ta chưa được công nhận là Vườn Di sản ASEAN? :"
+                      +"\n"+"1.Vườn quốc gia Kon Ka Kinh"
+                  +"\n"+"2. Vườn quốc gia Chư Mom Ray"
+                  +"\n"+"3.Vườn quốc gia Tam Đảo"
+                  +"\n"+"4.Vườn quốc gia Bái Tử Long" 
+                          :{'3'}},	
+                "12":{"Hoa hậu Hòa bình Quốc tế 2017 dự kiến sẽ được tổ chức tại quốc gia nào?:"
+                      +"\n"+"1. Thái Lan"
+                  +"\n"+"2. Việt Nam"
+                  +"\n"+"3. Lào"
+                  +"\n"+"4.Campuchia" 
+                          :{'2'}},
+                "13":{"Hoa hậu Hòa bình Quốc tế 2017 dự kiến sẽ được tổ chức tại quốc gia nào?:"
+                      +"\n"+"1. Thái Lan"
+                  +"\n"+"2. Việt Nam"
+                  +"\n"+"3. Lào"
+                  +"\n"+"4.Campuchia" 
+                          :{'2'}},
+                "14":{"Bệnh gì bác sỹ bó tay?:"
+                      +"\n"+"1. chết"
+                  +"\n"+"2.đau tim"
+                  +"\n"+"3.chết não"
+                  +"\n"+"4.gãy tay" 
+                          :{'4'}},
+                "15":{"Trong harry potter ai đẹp nhất?:"
+                      +"\n"+"1.Oliver Wood"
+                  +"\n"+"2.Draco Malfoy"
+                  +"\n"+"3.Hermione Granger"
+                  +"\n"+"4.Luna" 
+                          :{'4'}},
+                "16":{"Ai là Nhân Vật Lynn ghét nhất?:"
+                      +"\n"+"1.James Potter"
+                  +"\n"+"2.Draco Malfoy"
+                  +"\n"+"3.Tom Riddle"
+                  +"\n"+"4.Ron Weasley" 
+                          :{'4'}},
+                "17":{"Ai Xứng đáng làm nyc của Zuker?:"
+                      +"\n"+"1.hermione granger"
+                  +"\n"+"2.Draco Malfoy"
+                  +"\n"+"3.Tom Riddle"
+                  +"\n"+"4.Ron Weasley" 
+                          :{'4'}},	
+                "18":{"Ai Xứng đáng làm nyc của Zuker?:"
+                      +"\n"+"1.hermione granger"
+                  +"\n"+"2.Draco Malfoy"
+                  +"\n"+"3.Tom Riddle"
+                  +"\n"+"4.Ron Weasley" 
+                          :{'4'}},
+                "19":{"Trong NaruTo Ai đáng Thương nhất?:"
+                      +"\n"+"1.madara"
+                  +"\n"+"2.obito"
+                  +"\n"+"3.naruto"
+                  +"\n"+"4.pain" 
+                          :{'2'}},
+                "20":{"Trong NaruTo Ai đáng Ghét nhất?:"
+                      +"\n"+"1.sakura"
+                  +"\n"+"2.madara"
+                  +"\n"+"3.sasuke"
+                  +"\n"+"4.naruto" 
+                          :{'1'}},					
+              }
+        while True:
+            global a
+            i=random.randint(1,14)
+            print(str(i))
+            if str(i) not in cauhoi:
+                continue
+            else:
+                await ctx.send('-----câu '+str(a)+'---------')
+                for x in cauhoi[str(i)].keys():
+                    await ctx.send(x)   
+
+                    await ctx.send('Đáp Án !',components=[Select(
+                        placeholder='Chọn ! ',
+                        options =[
+                        SelectOption(label ='1',value='1'),
+                        SelectOption(label ='2',value='2'),
+                        SelectOption(label ='3',value='3'),
+                        SelectOption(label ='4',value='4'),
+                        ],
+                        custom_id='selectTesting'
+                    )])
+                    interaction = await bot.wait_for("select_option", check = lambda i: i.custom_id=='selectTesting')
+                    for x in cauhoi[str(i)].values():
+                        if str('{\''+interaction.values[0]+'\'}') == str(x) :
+                            await ctx.send(f"Ê {interaction.author} GIỎI !!!!")
+                            a= a+1
+                            del cauhoi[str(i)]
+                        else:
+                            await ctx.send(f"LỒN {interaction.author} NGU NHƯ CẶC VẬY")
+                            await asyncio.sleep(int(2))
+                            await ctx.channel.purge(limit=a*4)
+                            await ctx.send(f"THẰNG GÀ {interaction.author} TRẢ LỜI ĐC {a} Câu !")
+                            return
+    @bot.command()
+    async def dktuoilon(ctx):
+        await ctx.send("DK CÓ TUỔI NHƯNG TUỔI LỒN !\n"*55)
+    @bot.command()
+    async def clear(ctx):
+        await ctx.channel.purge(limit=100)    
     @bot.command()
     async def mutetime(ctx, member: discord.Member=None, time=None, *, reason=None):
         if(str(member.mention) !="<@815925691580940298>"):
@@ -190,20 +332,23 @@ def main():
     @bot.command()
     async def helpme(ctx):
         embed = discord.Embed(
-        title='LỆNH ĐÍT BOT LYNN !!!',
-        description=('COMMANDS \n\n:'
-                    '1. $said {name}\n'
-                    '2. $ban {name}{cấm dùng chưa fix}\n'
-                    '3. $unban {name}{cấm dùng chưa fix}\n'
-                    '4. $hello_bot\n'
-                    '5. $helpcoder\n'
-                    '6. $bucu {name}\n'
-                    '7. $imgirl {name}\n'
-                    '8. $Ngu {name}\n'
-                    '9. $mute {name}\n'
-                    '10. $unmute {name}\n'),
-                    
-        color=0xFF0000
+          title='LỆNH ĐÍT BOT LYNN !!!',
+          description=('COMMANDS \n\n:'
+                      '1. $said {name}\n'
+                      '2. $ban {name}{cấm dùng chưa fix}\n'
+                      '3. $unban {name}{cấm dùng chưa fix}\n'
+                      '4. $hello_bot\n'
+                      '5. $helpcoder\n'
+                      '6. $bucu {name}\n'
+                      '7. $imgirl {name}\n'
+                      '8. $Ngu {name}\n'
+                      '9. $mute {name}\n'
+                      '10. $ailatrieuphu\n'
+                      '11. $clear\n'
+                      '12. $dktuoilon {name}\n'
+                      '13. $unmute {name}\n'),
+
+          color=0xFF0000
         )
         msg = await ctx.send(embed=embed)
         await msg.add_reaction('👍')
