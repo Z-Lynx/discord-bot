@@ -216,8 +216,8 @@ def main():
                   +"\n"+"4.naruto" 
                           :{'1'}},					
               }
+        a=1
         while True:
-            global a
             i=random.randint(1,14)
             print(str(i))
             if str(i) not in cauhoi:
