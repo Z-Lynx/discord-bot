@@ -261,7 +261,7 @@ def main():
         await ctx.send("DK CÓ TUỔI NHƯNG TUỔI LỒN !\n"*55)
     @bot.command()
     async def clear(ctx,reson=None):
-        await ctx.channel.purge(limit=reson)    
+        await ctx.channel.purge(limit=int(reson))    
     @bot.command()
     async def clearall(ctx):
         await ctx.channel.purge(limit=100000)    
