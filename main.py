@@ -23,7 +23,11 @@ def main():
         await ctx.send(f"ĐỤ ĐỈ MẸ MÀY {arg}")
         await ctx.send(f"ĐỤ ĐỈ MẸ MÀY {arg}")
         await ctx.send(f"ĐỤ ĐỈ MẸ MÀY {arg}")
-
+    @bot.command()
+    async def TFT(ctx, arg):
+        await ctx.send(f"ÔI BẠN ƠI THẰNG {arg} CHƠI NGU VCL RA")
+        await ctx.send(f"NÓ CHƠI CHỦ YẾU GIÚP MÀY TOP 1 THÔI")
+        await ctx.send(f"ĐỂ CON CHÓ GO PRO CÒN ĐỈNH CAO HƠN THẰNG NÀY {arg}")
     @bot.command()
     async def tag(ctx,  member : discord.Member):
         if(str(member.mention) !="<@815925691580940298>"):
