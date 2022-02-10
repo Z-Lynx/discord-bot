@@ -263,14 +263,14 @@ def main():
                                 await ctx.send(f"THẰNG GÀ {ctx.author.name} TRẢ LỜI ĐC {a-1} Câu !")
                                 return
     @bot.command()
-    async def DK(ctx):
-        await ctx.send("DK CÓ TUỔI NHƯNG TUỔI LỒN !\n"*55)
+    async def T1(ctx):
+        await ctx.send("T1 VÔ ĐỊCH !\n"*55)
     @bot.command()
     async def clear(ctx,reson=None):
         await ctx.channel.purge(limit=int(reson))    
     @bot.command()
     async def clearall(ctx):
-        await ctx.channel.purge(limit=100000)    
+        await ctx.channel.purge(limit=100000000)    
     @bot.command()
     async def mutetime(ctx, member: discord.Member=None, time=None, *, reason=None):
         if(str(member.mention) !="<@815925691580940298>"):
@@ -378,8 +378,9 @@ def main():
     async def bucu(ctx,arg):
         text= [f'awwwwww awwwwwww cu anh to quá em nứng quá anh  {arg} , Awwww awwww ra trong mồm em đi anh ơi awwwwwww'
         ,f'Đéo Thèm nhiều tinh trong mồm bố mày quá rồi đợi xíu em làm hiệp 2 với anh nha {arg} hihiii',
-        f'È con cu xíu xiu hihiii cute đó anh {arg} hihiii']
-        index = random.randint(0,3)
+        f'È con cu xíu xiu hihiii cute đó anh {arg} hihiii',
+        'cu nhỏ']
+        index = random.randint(0,4)
         await ctx.send(text[index])
     
     bot.run(os.getenv('DISCORD_TOKEN'))
