@@ -31,7 +31,7 @@ def main():
     @bot.command()
     async def tag(ctx,  member : discord.Member):
         if(str(member.mention) !="<@815925691580940298>"):
-            await member.send(f'{ctx.author.name} Ơi Vô Tâm Sự Chuyện Đời Với Mình Nào \n'*30)
+            await member.send(f'Bạn ơi Vô ĐỊT Code Tâm Sự Với {ctx.author.name} Nào  \n'*30)
             await ctx.send('Đã Tag')
         else:
             await ctx.send(f'ĐỈ MẸ M THÍCH TAG {member.mention} KHÔNG THẰNG LỒN {ctx.author.name} ? ')
