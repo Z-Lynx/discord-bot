@@ -31,7 +31,7 @@ def main():
     @bot.command()
     async def tag(ctx,  member : discord.Member):
         if(str(member.mention) !="<@815925691580940298>"):
-            await member.send(f'{ctx.author.name} Ơi Vô Tâm Sự Chuyện Đời Với Mình Nào <3 \n'*50)
+            await member.send(f'{ctx.author.name} Ơi Vô Tâm Sự Chuyện Đời Với Mình Nào \n'*50)
             await ctx.send('Đã Tag')
         else:
             await ctx.send(f'ĐỈ MẸ M THÍCH TAG {member.mention} KHÔNG THẰNG LỒN {ctx.author.name} ? ')
@@ -264,7 +264,7 @@ def main():
                                 return
     @bot.command()
     async def T1(ctx):
-        await ctx.send("T1(LCK chức T1 UTE á Có Tuổi Mà Tuổi LỒN) VÔ ĐỊCH !\n"*55)
+        await ctx.send("T1 LCK chứ T1 UTE á Có Tuổi Mà Tuổi LỒN VÔ ĐỊCH !\n"*55)
     @bot.command()
     async def clear(ctx,reson=None):
         await ctx.channel.purge(limit=int(reson))    
