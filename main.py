@@ -264,7 +264,7 @@ def main():
                                 return
     @bot.command()
     async def T1(ctx):
-        await ctx.send("T1 LCK chứ T1 UTE á Có Tuổi Mà Tuổi LỒN VÔ ĐỊCH !\n"*30)
+        await ctx.send("T1 LCK chứ T1 á Có Tuổi Mà Tuổi LỒN VÔ ĐỊCH !\n"*30)
     @bot.command()
     async def clear(ctx,reson=None):
         await ctx.channel.purge(limit=int(reson))    
